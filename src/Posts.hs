@@ -3,6 +3,7 @@ module Posts
   , listPosts
   , displayPost
   , makeDummyPosts
+  , Post
   ) where
 
 import qualified Data.Text.Lazy as TL

@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e1d9b198fd40def1dfb377e9881850c8b1d73ae92123fa0e214ea2883a680529
+-- hash: 655ee2aec450621995558a817208946530e2b47383204f2682c26faa553e06d8
 
 name:           website
 version:        0.1.0.0
@@ -28,6 +28,7 @@ source-repository head
 library
   exposed-modules:
       Lib
+      MyState
       Posts
   other-modules:
       Paths_website
@@ -38,6 +39,7 @@ library
     , containers
     , http-types
     , scotty
+    , stm
     , text
     , time
   default-language: Haskell2010
@@ -54,6 +56,7 @@ executable website-exe
     , containers
     , http-types
     , scotty
+    , stm
     , text
     , time
     , website
@@ -72,6 +75,7 @@ test-suite website-test
     , containers
     , http-types
     , scotty
+    , stm
     , text
     , time
     , website
