@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 343721ce3076452a210e3861d775dca8babc7c2cfddc3fd35bec458fc7994eee
+-- hash: e1d9b198fd40def1dfb377e9881850c8b1d73ae92123fa0e214ea2883a680529
 
 name:           website
 version:        0.1.0.0
@@ -28,13 +28,18 @@ source-repository head
 library
   exposed-modules:
       Lib
+      Posts
   other-modules:
       Paths_website
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
+    , containers
+    , http-types
     , scotty
+    , text
+    , time
   default-language: Haskell2010
 
 executable website-exe
@@ -46,7 +51,11 @@ executable website-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , containers
+    , http-types
     , scotty
+    , text
+    , time
     , website
   default-language: Haskell2010
 
@@ -60,6 +69,10 @@ test-suite website-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , containers
+    , http-types
     , scotty
+    , text
+    , time
     , website
   default-language: Haskell2010
