@@ -1,3 +1,5 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module Posts
   ( Posts
   , listPosts
@@ -23,10 +25,7 @@ listPosts :: Posts -> TL.Text
 listPosts = TL.unlines . map ppPost . M.elems
 
 displayPost :: Integer -> Posts -> TL.Text
-displayPost pid posts =
-  case M.lookup pid posts of
-    Just post -> ppPost post
-    Nothing -> TL.pack "404 Not Found."
+displayPost pid posts = maybe "404 Not Found." ppPost $ M.lookup pid posts
 
 makeDummyPosts :: IO Posts
 makeDummyPosts = do 
@@ -36,9 +35,9 @@ makeDummyPosts = do
       0 
       ( Post
         { pTime = time
-        , pTitle = TL.pack "Dummy title"
-        , pAuthor = TL.pack "Dummy author"
-        , pContent = TL.pack "bla bla bla..."
+        , pTitle = "Dummy title"
+        , pAuthor = "Dummy author"
+        , pContent = "bla bla bla..."
         }
       )
 
@@ -47,13 +46,13 @@ ppPost post =
   let
     header =
       TL.unwords
-        [TL.pack ("[" <> show (pTime post) <> "]")
+        ["[" <> TL.pack (show (pTime post)) <> "]"
         , pTitle post
-        , TL.pack "by"
+        , "by"
         , pAuthor post
         ]
     seperator =
-      TL.replicate (TL.length header) $ TL.pack "-"
+      TL.replicate (TL.length header) "-"
   in
     TL.unlines 
       [ seperator
