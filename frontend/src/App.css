@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar-nav
+{
+  display: flex;
+}
+
+.nav-link
+{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
