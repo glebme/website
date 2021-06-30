@@ -1,11 +1,13 @@
 import React from 'react';
 import logo from '../logo.svg';
 import '../App.css';
+import {Navigation} from '../components/Navigation/Navigation';
 
 const Home = () => {
     return (
         <div className="App">
         <header className="App-header">
+          <Navigation />          
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.tsx</code> and save to reload.
@@ -23,4 +25,4 @@ const Home = () => {
     )
 };
 
-export {Home}
+export {Home};
